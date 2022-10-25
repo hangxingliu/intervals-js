@@ -10,6 +10,13 @@ const manager = new IntIntervals();
 debugInvoke = false;
 assertFuncInvoke("add", manager.add, 0, [3, 4]);
 assertFuncInvoke("getAll", manager.getAll, [[3, 4]]);
+assertFuncInvoke("has", manager.has, true, 3);
+assertFuncInvoke("has", manager.has, true, 4);
+assertFuncInvoke("has", manager.has, true, [3, 4]);
+assertFuncInvoke("has", manager.has, false, 5);
+assertFuncInvoke("has", manager.has, false, [3, 5]);
+assertFuncInvoke("has", manager.has, false, [2, 4]);
+assertFuncInvoke("has", manager.has, false, [4, 5]);
 manager.clear();
 
 assertFuncInvoke("add", manager.add, 0, [3, 4, { v: 1 }]);
@@ -121,14 +128,12 @@ assertFuncInvoke("remove", manager.remove, 0, [1, 100]);
 assertFuncInvoke("getAll", manager.getAll, []);
 manager.clear();
 
-
 assertFuncInvoke("add", manager.add, 0, [1, 5]);
 assertFuncInvoke("add", manager.add, 0, [10, 15]);
 assertFuncInvoke("add", manager.add, 0, [20, 25]);
 assertFuncInvoke("remove", manager.remove, 3, [1, 100]);
 assertFuncInvoke("getAll", manager.getAll, []);
 manager.clear();
-
 
 //
 // ======================================================

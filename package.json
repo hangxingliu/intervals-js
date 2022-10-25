@@ -1,6 +1,6 @@
 {
   "name": "@hangxingliu/intervals",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A mathematic class that contains operations with multiple intervals",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

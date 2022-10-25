@@ -100,6 +100,25 @@ export class IntIntervals<T = any> {
     return intervals.length;
   };
 
+  has = (value: number | ClosedInterval<any>): boolean => {
+    let lo: number;
+    let hi: number;
+    if (Array.isArray(value)) {
+      // range
+      [lo, hi] = value;
+    } else {
+      // value
+      lo = value;
+      hi = value;
+    }
+    const lowerInterval = this.intervals.nextLowerPair(lo + 1);
+    if (lowerInterval) {
+      const cmpHi = lowerInterval[1].hi;
+      if (cmpHi >= hi) return true;
+    }
+    return false;
+  };
+
   /** Complement/Difference */
   diff = (interval: ClosedInterval<any>): ClosedInterval<never>[] => {
     const [lo, hi] = interval;

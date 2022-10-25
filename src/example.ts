@@ -7,6 +7,8 @@ it.add([1, 10]);
 it.add([15, 20]);
 it.add([11, 14]);
 console.log(it.getAll()); // [ [ 1, 20 ] ]
+console.log(it.has(20)); // true
+console.log(it.has([1, 20])); // true
 
 it.remove([10, 12]);
 console.log(it.getAll()); // [ [ 1, 9 ], [ 13, 20 ] ]
